@@ -97,7 +97,7 @@ async function uploadFile(file) {
 		const isImage = file.type.includes('image');
 		const result = await fileUploader.upload(file, {
 			private: false,
-			optimize: isImage,
+			optimize: false && isImage, // stop optimizing images 
 		});
 
 		toast.success(`${isImage ? 'Image' : 'File'} uploaded successfully`);
